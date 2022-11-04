@@ -3019,6 +3019,10 @@ int main(void)
 //      ad7779_spi_int_reg_write_mask(device4,AD7779_REG_SRC_UPDATE,AD7779_SRC_LOAD_UPDATE,AD7779_DISABLE);
 
       devices[3]=device4;
+      }
+
+      if(uint8_ad_adc_number >= 5)
+      {
 
 	  ads131m0x_dev *device5;
 	  ads131m0x_init_param init_param5 = init_param;
