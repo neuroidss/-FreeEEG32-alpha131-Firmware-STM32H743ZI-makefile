@@ -17,8 +17,7 @@ jobs:
       run: echo "PACKAGE=$(basename `git config --get remote.origin.url` | sed -e 's/\.git$//')" >> $GITHUB_ENV
     - name: build
       run: |
-        chmod +x ./gcc-arm-none-eabi_make.sh
-        ./gcc-arm-none-eabi_make.sh
+        docker run -it --user 0:0 -v $PWD:/root/makefile neuroidss/gcc-arm-none-eabi-ubuntu /bin/bash -c "cd ./root/makefile;make"
     - uses: "marvinpinto/action-automatic-releases@latest"
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
